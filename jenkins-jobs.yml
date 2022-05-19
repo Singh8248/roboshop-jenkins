@@ -5,3 +5,4 @@
   vars:
     pipeline_jobs:
       - { jobName: "sample3", folderName: "demo", repoName: "learning-jenkins"}
+      - { jobName: "sample4", folderName: "demo", repoName: "learning-something"}
