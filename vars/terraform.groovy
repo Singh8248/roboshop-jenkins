@@ -27,11 +27,17 @@ def call() {
       stage('Terraform Apply') {
         steps {
           sh '''
-            terraform init -var-file=env-${ENV}/${ENV}.tfvars
+            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars
           '''
         }
       }
 
+    }
+
+    post {
+      always {
+        cleanWs()
+      }
     }
 
   }
