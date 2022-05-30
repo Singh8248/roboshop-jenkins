@@ -3,6 +3,17 @@
     src: pipeline-job.xml
     dest: /tmp
 
+- name: Check if Job Exists
+  community.general.jenkins_job_info:
+    name: "{{item.folderName}}/{{item.jobName}}"
+    user: admin
+    password: admin
+  register: job_info
+
+- name: print
+  debug:
+    msg: "{{job_info}}"
+
 - name: Create Jenkins Jobs
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/pipeline-job.xml') }}"
