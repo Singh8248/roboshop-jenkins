@@ -5,23 +5,19 @@
 
 - name: Check if Job Exists
   community.general.jenkins_job_info:
-    #name: "{{item.folderName}}/{{item.jobName}}"
-    name: sample
+    name: "{{item.folderName}}/{{item.jobName}}"
     user: admin
     password: admin
     url: http://172.31.13.99:8080
   register: job_info
   ignore_errors: yes
 
-- name: print
-  debug:
-    msg: "{{job_info}}"
 
-#- name: Create Jenkins Jobs
-#  community.general.jenkins_job:
-#    config: "{{ lookup('file', '/tmp/pipeline-job.xml') }}"
-#    name: "{{item.folderName}}/{{item.jobName}}"
-#    password: admin
-#    user: admin
-#    url: http://172.31.13.99:8080
-#
+- name: Create Jenkins Jobs
+  community.general.jenkins_job:
+    config: "{{ lookup('file', '/tmp/pipeline-job.xml') }}"
+    name: "{{item.folderName}}/{{item.jobName}}"
+    password: admin
+    user: admin
+    url: http://172.31.13.99:8080
+  when: job_info.failed
