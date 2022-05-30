@@ -11,6 +11,7 @@
     password: admin
     url: http://172.31.13.99:8080
   register: job_info
+  ignore_errors: yes
 
 - name: print
   debug:
