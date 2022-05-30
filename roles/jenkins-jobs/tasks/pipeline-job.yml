@@ -8,6 +8,7 @@
     name: "{{item.folderName}}/{{item.jobName}}"
     user: admin
     password: admin
+    url: http://172.31.13.99:8080
   register: job_info
 
 - name: print
