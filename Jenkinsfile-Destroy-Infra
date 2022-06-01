@@ -71,6 +71,9 @@ pipeline {
           }
         }
 
+      }
+    }
+
         stage('DEAFULT-TGW') {
           steps {
             dir('DEAFULT-TGW') {
@@ -79,8 +82,6 @@ pipeline {
               sh 'terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars'
             }
           }
-
-      }
 
     }
 
