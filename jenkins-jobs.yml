@@ -25,5 +25,5 @@
       - { jobName: "frontend", folderName: "CI-Pipelines", repoName: "frontend", fileName: "Jenkinsfile" }
       - { jobName: "payment", folderName: "CI-Pipelines", repoName: "payment", fileName: "Jenkinsfile" }
       - { jobName: "shipping", folderName: "CI-Pipelines", repoName: "shipping", fileName: "Jenkinsfile" }
-      - { jobName: "set-jenkins-ip", folderName: "Infrastructure", repoName: "roboshop-jenkins", fileName: "Jenkinsfile" }
+      - { jobName: "set-jenkins-ip", folderName: "Infrastructure", repoName: "roboshop-jenkins", fileName: "Jenkinsfile-jenkins-dns-setup" }
 
