@@ -12,6 +12,7 @@ def call() {
         steps {
           dir('ANSIBLE') {
             git branch: 'dev', url: 'https://github.com/raghudevopsb64/roboshop-ansible.git'
+            sh 'env'
           }
         }
       }
