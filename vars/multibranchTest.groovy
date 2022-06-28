@@ -10,10 +10,10 @@ def call() {
     }
 
     if(BRANCH_NAME == "PR*") {
-      stage('test') {
+      stage('PR-STage1') {
         sh 'echo hello'
       }
-      stage('test1') {
+      stage('PR-STage2') {
         sh 'echo hello'
       }
     }
