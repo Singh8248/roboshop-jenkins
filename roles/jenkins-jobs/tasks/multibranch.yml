@@ -1,3 +1,7 @@
+- name: Get Uniq ID
+  ansible.builtin.shell: date | base64
+  register: uniqID
+
 - name: Create Template file
   template:
     src: multibranchPipeline.xml
@@ -12,10 +16,6 @@
   register: job_info
   ignore_errors: yes
 
-- name: Get Uniq ID
-  ansible.builtin.shell: date | base64
-  register: uniqID
-
 - name: Create Multibranch Jenkins Jobs
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/multibranchPipeline.xml') }}"
@@ -23,6 +23,4 @@
     password: admin
     user: admin
     url: http://172.31.13.99:8080
-  vars:
-    uniqID: "{{uniqID.stdout}}"
   #when: job_info.failed
