@@ -1,7 +1,7 @@
 def call() {
   node{
     sh 'rm -rf "*"'
-    if(BRANCH_NAME ==~ "PR*") {
+    if(BRANCH_NAME ==~ "PR.*") {
       stage('PR-STage1') {
         sh 'echo hello'
       }
