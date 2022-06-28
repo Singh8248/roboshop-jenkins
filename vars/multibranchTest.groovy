@@ -2,6 +2,7 @@ def call() {
   node{
     if(BRANCH_NAME != "main") {
       stage('test') {
+        sh 'env'
         sh 'echo hello'
       }
       stage('test1') {
