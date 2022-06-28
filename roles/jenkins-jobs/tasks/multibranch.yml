@@ -12,6 +12,10 @@
   register: job_info
   ignore_errors: yes
 
+- name: Get Uniq ID
+  ansible.builtin.shell: date | base64
+  register: uniqID
+
 - name: Create Multibranch Jenkins Jobs
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/multibranchPipeline.xml') }}"

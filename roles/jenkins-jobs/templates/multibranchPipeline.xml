@@ -27,7 +27,7 @@
         <data>
             <jenkins.branch.BranchSource>
                 <source class="org.jenkinsci.plugins.github_branch_source.GitHubSCMSource" plugin="github-branch-source@1628.vb_2f51293cb_78">
-                    <id>8dd7a6ee-1587-407f-ba9a-9e2cdd94946d</id>
+                    <id>{{uniqID.stdout}}</id>
                     <apiUri>https://api.github.com</apiUri>
                     <credentialsId>GIT_TOKEN</credentialsId>
                     <repoOwner>raghudevopsb64</repoOwner>
