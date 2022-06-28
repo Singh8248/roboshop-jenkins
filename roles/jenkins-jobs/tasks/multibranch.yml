@@ -23,4 +23,6 @@
     password: admin
     user: admin
     url: http://172.31.13.99:8080
+  vars:
+    uniqID: "{{uniqID.stdout}}"
   #when: job_info.failed
