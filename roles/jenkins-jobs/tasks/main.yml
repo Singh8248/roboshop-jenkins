@@ -14,3 +14,9 @@
   loop: "{{pipeline_jobs}}"
 
 
+- name: Create Multi Pipeline Jobs
+  include_role:
+    name: jenkins-jobs
+    tasks_from: pipeline-job
+  loop: "{{multibranch_jobs}}"
+  
