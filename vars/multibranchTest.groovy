@@ -4,6 +4,9 @@ def call() {
       stage('test') {
         sh 'echo hello'
       }
+      stage('test1') {
+        sh 'echo hello'
+      }
     }
 
     if(BRANCH_NAME == "main") {
