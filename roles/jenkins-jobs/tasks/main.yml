@@ -13,7 +13,6 @@
     tasks_from: pipeline-job
   loop: "{{pipeline_jobs}}"
 
-
 - name: Create Multi Pipeline Jobs
   include_role:
     name: jenkins-jobs
