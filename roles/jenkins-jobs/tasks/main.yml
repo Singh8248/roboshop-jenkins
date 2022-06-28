@@ -17,5 +17,5 @@
 - name: Create Multi Pipeline Jobs
   include_role:
     name: jenkins-jobs
-    tasks_from: pipeline-job
+    tasks_from: multibranch
   loop: "{{multibranch_jobs}}"
