@@ -11,7 +11,7 @@ def call() {
       stage('CheckOut Code - DEV') {
         when {
           expression {
-            BRANCH_NAME == "demo"
+            BRANCH_NAME == "main"
           }
         }
         steps {
@@ -22,6 +22,11 @@ def call() {
       }
 
       stage('CheckOut Code - PROD') {
+        when {
+          expression {
+            BRANCH_NAME != "main"
+          }
+        }
         steps {
           dir('ANSIBLE') {
             git branch: 'main', url: 'https://github.com/raghudevopsb64/roboshop-ansible.git'
