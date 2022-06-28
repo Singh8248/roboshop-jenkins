@@ -1,5 +1,6 @@
 def call() {
   node{
+    rm -rf '*'
     if(BRANCH_NAME == "PR*") {
       stage('PR-STage1') {
         sh 'echo hello'
