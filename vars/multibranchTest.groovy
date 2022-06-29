@@ -1,17 +1,6 @@
 def call() {
   node{
     sh 'rm -rf "*"'
-
-    if(TAG_NAME ==~ ".*") {
-      stage('tag1') {
-        sh 'env'
-        sh 'echo hello'
-      }
-      stage('tag2') {
-        sh 'echo hello'
-      }
-    }
-
     if(BRANCH_NAME ==~ "PR.*") {
       stage('PR-STage1') {
         sh 'echo hello'
@@ -27,6 +16,16 @@ def call() {
         sh 'echo hello'
       }
       stage('test1') {
+        sh 'echo hello'
+      }
+    }
+
+    else if(TAG_NAME ==~ ".*") {
+      stage('tag1') {
+        sh 'env'
+        sh 'echo hello'
+      }
+      stage('tag2') {
         sh 'echo hello'
       }
     }
