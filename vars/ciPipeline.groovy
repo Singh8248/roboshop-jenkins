@@ -1,6 +1,6 @@
 def call() {
   node{
-    sh 'ls -A | xargs rm -rf'
+    sh 'ls -A | xargs rm -rvf'
     sh "git clone https://github.com/raghudevopsb64/${env.COMPONENT} ."
     sh 'ls -ltr'
 
