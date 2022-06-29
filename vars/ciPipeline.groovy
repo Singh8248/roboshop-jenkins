@@ -8,6 +8,10 @@ def call() {
       compileCode.compile()
     }
 
+    stage('Code Quality - Sonar') {
+      codeQuality()
+    }
+
     if(env.TAG_NAME) {
       print 'OK'
     }
