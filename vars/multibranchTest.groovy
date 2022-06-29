@@ -1,6 +1,7 @@
 def call() {
   node{
     sh 'rm -rf "*"'
+    print env.TAG_NAME
     if(TAG_NAME ==~ ".*") {
       stage('tag1') {
         sh 'env'
