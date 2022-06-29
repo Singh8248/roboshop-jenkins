@@ -1,13 +1,13 @@
 def call() {
   node{
-    sh 'rm -rf "*"'
+    sh 'find . | xargs rm -rf'
     sh "git clone https://github.com/raghudevopsb64/${env.COMPONENT} ."
     sh 'ls -ltr'
 
     stage('Compile Code') {
       compileCode.compile()
     }
-    
+
     if(env.TAG_NAME) {
       print 'OK'
     }
