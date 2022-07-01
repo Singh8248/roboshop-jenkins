@@ -14,13 +14,13 @@ def call() {
 
     stage('Test Cases') {
       parallel([
-          unit-tests: {
+          unittests: {
             echo "unit-tests"
           },
-          integration-tests: {
+          integrationtests: {
             echo "integration tests"
           },
-          smoke-tests: {
+          smoketests: {
             echo "smoke tests"
           }
       ])
