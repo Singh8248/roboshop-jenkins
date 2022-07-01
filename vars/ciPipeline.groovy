@@ -26,11 +26,11 @@ def call() {
       ])
     }
 
-    env
     if(env.TAG_NAME) {
-      artifacts.prepare()
-      artifacts.publish()
+      stage('Publish to Nexus') {
+        artifacts.prepare()
+        artifacts.publish()
+      }
     }
-
   }
 }
