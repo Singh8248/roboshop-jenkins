@@ -12,6 +12,20 @@ def call() {
       codeQuality()
     }
 
+    stage('Test Cases') {
+      parallel([
+          unit-tests: {
+            echo "unit-tests"
+          },
+          integration-tests: {
+            echo "integration tests"
+          },
+          smoke-tests: {
+            echo "smoke tests"
+          }
+      ])
+    }
+
     if(env.TAG_NAME) {
       print 'OK'
     }
