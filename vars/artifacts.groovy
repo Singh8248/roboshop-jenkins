@@ -8,7 +8,12 @@ def prepare() {
     """
   }
 
-  if (env.APPTYPE == "nodejs" ) {
+  if (env.SERVICE_TYPE == "nginx") {
+    sh """
+      cd static
+      zip -r ../${COMPONENT}-${TAG_NAME}.zip *
+    """
+  } else if (env.APPTYPE == "nodejs" ) {
     sh """
       npm install
       zip -r ${COMPONENT}-${TAG_NAME}.zip server.js node_modules
@@ -18,12 +23,6 @@ def prepare() {
   if (env.APPTYPE == "python" ) {
     sh """
       zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirements.txt
-    """
-  }
-  else if (env.SERVICE_TYPE == "nginx") {
-    sh """
-      cd static
-      zip -r ../${COMPONENT}-${TAG_NAME}.zip *
     """
   }
 
