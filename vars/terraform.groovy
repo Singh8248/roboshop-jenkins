@@ -28,7 +28,7 @@ def call() {
       stage('Terraform Apply') {
         steps {
           sh '''
-            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars -var VERSION=${VERSION}
+            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=${VERSION}
           '''
         }
       }
