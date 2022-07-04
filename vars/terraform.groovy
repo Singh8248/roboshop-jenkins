@@ -8,6 +8,7 @@ def call() {
 
     parameters {
       string(name: 'ENV', defaultValue: '', description: 'Which Environment?')
+      string(name: 'VERSION', defaultValue: '', description: 'Which Version?')
     }
 
     environment {
@@ -27,7 +28,7 @@ def call() {
       stage('Terraform Apply') {
         steps {
           sh '''
-            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars
+            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars -var VERSION=${VERSION}
           '''
         }
       }
