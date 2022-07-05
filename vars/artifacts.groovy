@@ -30,7 +30,8 @@ def prepare() {
 
 def publish() {
   sh """
-    curl -f -v -u admin:admin123 --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.12.154:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+    #curl -f -v -u admin:admin123 --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.12.154:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+    curl -v -u admin:admin123 --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.12.154:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
   """
 }
 
