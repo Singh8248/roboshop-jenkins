@@ -30,7 +30,11 @@ def call() {
       stage('Publish to Nexus') {
         artifacts.prepare()
         artifacts.publish()
-        artifacts.ami()
+      }
+      stage("Publish AMI") {
+        ansiColor('xterm') {
+          artifacts.ami()
+        }
       }
     }
   }
