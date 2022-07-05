@@ -30,6 +30,7 @@ def call() {
       stage('Publish to Nexus') {
         artifacts.prepare()
         artifacts.publish()
+        artifacts.ami()
       }
     }
   }
