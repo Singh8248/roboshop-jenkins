@@ -39,5 +39,8 @@ def ami() {
   sh """
     terraform init 
     terraform apply -auto-approve -var APP_VERSION=${TAG_NAME}
+    terraform state rm 'module.ami.aws_ami_from_instance.ami'
+    terraform destroy -auto-approve -var APP_VERSION=${TAG_NAME}
   """
 }
+
